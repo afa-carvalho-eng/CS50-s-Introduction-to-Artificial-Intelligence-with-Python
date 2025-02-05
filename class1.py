@@ -11,4 +11,6 @@ class StackFrontier():
     def __init__(self):
         self.frontier = []
 
-    def add(self, node):
+    def add(self, node):    
+        self.frontier.append(node)
+        self.frontier.sort(key=lambda node: node.path_cost)
