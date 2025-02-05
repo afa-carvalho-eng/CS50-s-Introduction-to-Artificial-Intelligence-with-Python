@@ -211,7 +211,7 @@ class Maze():
 
 
 if len(sys.argv) != 3:
-    sys.exit("Usage: python maze.py maze.txt")
+    sys.exit("Usage: python maze.py maze.txt bfs/dfs (type of search)")
 
 m = Maze(sys.argv[1])
 print("Maze:")
