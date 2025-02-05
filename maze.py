@@ -34,7 +34,7 @@ class QueueFrontier(StackFrontier):
         if self.empty():
             raise Exception("empty frontier")
         else:
-            node = self.frontier.pop(0)
+            node = self.frontier[0]
             self.frontier = self.frontier[1:]
             return node
 
@@ -110,7 +110,7 @@ class Maze():
                 results.append((action, (next_row, next_col)))
         return results
 
-    def solve(self):
+    def solve(self, searchMethod):
         """"Finds a solution to maze, if one exists. """
     
         # Keep track of number os states explored
@@ -118,7 +118,10 @@ class Maze():
         
         # Initialize frontier to the starting position
         start = Node(state=self.start, parent=None, action=None)
-        frontier = StackFrontier()
+        if searchMethod == 'bfs':
+            frontier = QueueFrontier()
+        else :
+            frontier = StackFrontier()
         frontier.add(start)
 
         # Initialize an empty explored set
@@ -207,14 +210,14 @@ class Maze():
             img.save(filename)
 
 
-if len(sys.argv) != 2:
+if len(sys.argv) != 3:
     sys.exit("Usage: python maze.py maze.txt")
 
 m = Maze(sys.argv[1])
 print("Maze:")
 m.print()
 print("Solving:...")
-m.solve()
+m.solve(sys.argv[2])
 print("States explored",m.num_explored)
 print("Solution:")
 m.print()
