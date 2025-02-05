@@ -206,7 +206,7 @@ class Maze():
             
             img.save(filename)
 
-# def main():
+
 if len(sys.argv) != 2:
     sys.exit("Usage: python maze.py maze.txt")
 
@@ -218,4 +218,4 @@ m.solve()
 print("States explored",m.num_explored)
 print("Solution:")
 m.print()
-m.output_image("maze.png")
+m.output_image("maze.png", show_explored=True)
