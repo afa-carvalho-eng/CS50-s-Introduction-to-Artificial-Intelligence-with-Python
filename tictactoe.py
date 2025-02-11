@@ -39,17 +39,18 @@ def actions(board):
     """
     Returns set of all possible actions (i, j) available on the board.
     """
-    set = []
+    possible_actions = set()
     for i in range(3):
         for j in range(3): 
             if board[i][j] == EMPTY:
-                set.append((i, j))
-    return set
+                possible_actions.add((i, j))  # Use .add() for a set
+    return possible_actions
 
 def result(board, action):
     """
     Returns the board that results from making move (i, j) on the board.
     """
+    
     if(action not in actions(board)):
         raise Exception("Invalid action")
     
@@ -113,18 +114,20 @@ def minimax(board):
     if terminal(board):
         return None
     
-    action = []
+    action = set()
     
     if player(board) == X:
-        v = -2
+        bestValue = -2
         for a in actions(board):
-            v = max(v, utility(result(board, action)))
-            if(v == 1):
+            v = utility(result(board, a))
+            if(v > bestValue):
+                bestValue = v
                 action = a
     else:
-        v = 2
+        bestValue = 2
         for a in actions(board):
-            v = min(v, utility(result(board, action)))
-            if(v == -1):
+            v = utility(result(board, a))
+            if(v < bestValue):
+                bestValue = v
                 action = a
     return action
