@@ -9,7 +9,7 @@ Solve a maze using different search algorithms! 🏁
 
 
       
-## 🎮 Tic Tac Toe
+# 🎮 Tic Tac Toe
 ## Play a fun game of Tic Tac Toe against an AI! 🤖
 
 ### 🕹️ Run the game:
