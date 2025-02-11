@@ -123,7 +123,7 @@ def minimax(board):
                 action = a
     else:
         v = 2
-        for action in actions(board):
+        for a in actions(board):
             v = min(v, utility(result(board, action)))
             if(v == -1):
                 action = a
