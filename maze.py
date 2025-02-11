@@ -120,7 +120,7 @@ class Maze():
         start = Node(state=self.start, parent=None, action=None)
         if searchMethod == 'bfs':
             frontier = QueueFrontier()
-        else :
+        else : # in case it is 'dfs'
             frontier = StackFrontier()
         frontier.add(start)
 
@@ -210,7 +210,7 @@ class Maze():
             img.save(filename)
 
 
-if len(sys.argv) != 3:
+if len(sys.argv) != 3 and (sys.argv[2] == "bfs" or sys.argv[2] == "dfs"):
     sys.exit("Usage: python maze.py maze.txt bfs/dfs (type of search)")
 
 m = Maze(sys.argv[1])
