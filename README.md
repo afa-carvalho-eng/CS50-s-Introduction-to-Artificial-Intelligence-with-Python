@@ -13,4 +13,5 @@ Solve a maze using different search algorithms! 🏁
 ##Play a fun game of Tic Tac Toe against an AI! 🤖
 
 ###🕹️ Run the game:
+
         python runner.py
