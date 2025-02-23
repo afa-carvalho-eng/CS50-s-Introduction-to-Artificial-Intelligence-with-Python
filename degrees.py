@@ -83,6 +83,11 @@ def main():
             movie = movies[path[i + 1][0]]["title"]
             print(f"{i + 1}: {person1} and {person2} starred in {movie}")
 
+class Node:
+    def __init__(self, state, movie_id, parent=None):
+        self.state = state  # person_id
+        self.movie_id = movie_id
+        self.parent = parent
 
 def shortest_path(source, target):
     """
@@ -91,37 +96,40 @@ def shortest_path(source, target):
 
     If no possible path, returns None.
     """
-    frontier = StackFrontier()
-    optionsToExplore = neighbors_for_person(source)
-    for explorationOptions in optionsToExplore:
-        frontier.add(Node(explorationOptions[0], explorationOptions[1]))
+    # Keep track of number os states explored
+    searchMethod = 'bfs' # 'bfs' or 'dfs' - 'bfs' to use breadth-first search, 'dfs' to use depth-first search
+    if source == target:
+        return []
 
+    num_explored = 0
     explored = set()
+
+    # Choose search method
+    frontier = QueueFrontier() if searchMethod == 'bfs' else StackFrontier()
+    frontier.add(Node(source, None))  # Root node, no movie_id
 
     while not frontier.empty():
         node = frontier.remove()
-        if node.state in explored:
-            continue
-        explored.add(node.state)
+        num_explored += 1
+        person_id = node.state
 
-        if node.state == target:
-            path = []
-            while node.parent is not None:
-                path.append((node.movie_id, node.state))
-                node = node.parent
-            path.reverse()
-            return path
-    while(source != target):
-        for movie_id, person_id in movies[source]["stars"]:
-            if person_id!= target and person_id not in explored:
-                frontier.add(Node(movie_id, person_id))
-        source = people[source]["movies"].pop()
-        if source not in people:
-            return None
-    return None
-        
-    # TODO
-    raise NotImplementedError
+        if person_id in explored:
+            continue
+        explored.add(person_id)
+
+        for movie_id, neighbor_id in neighbors_for_person(person_id):
+            if neighbor_id == target:
+                path = [(movie_id, target)]
+                while node.parent is not None:
+                    path.append((node.movie_id, node.state))
+                    node = node.parent
+                path.reverse()
+                return path
+
+            if neighbor_id not in explored:
+                frontier.add(Node(neighbor_id, movie_id, node))
+
+    return None  # No path found
 
 
 def person_id_for_name(name):
