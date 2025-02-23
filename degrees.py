@@ -96,7 +96,7 @@ def shortest_path(source, target):
 
     If no possible path, returns None.
     """
-    # Keep track of number os states explored
+
     searchMethod = 'bfs' # 'bfs' or 'dfs' - 'bfs' to use breadth-first search, 'dfs' to use depth-first search
     if source == target:
         return []
