@@ -1,30 +1,26 @@
 # 📚 AI Lecture Series  
 A journey through AI concepts, one lecture at a time! 🚀  
 
-## 🎓 Lecture Topics  
 
-### 🏁 Introduction  
-Welcome to the world of AI! Let’s set the stage.  
-
-### 🔍 Completed Search  
+### 🔍 Lecture1: [Search](./Lecture1/)   
 Finding stuff efficiently—because guessing is overrated.  
 
-### 🧠 Completed Knowledge  
+### 🧠 Lecture2: [Knowledge](./Lecture2/)     
 What we know, how we know it, and why it matters.  
 
-### 🎲 Incomplete Uncertainty  
+### 🎲 Lecture3: Uncertainty  
 Life’s full of unknowns, let’s make sense of them.  
 
-### 📈 Incomplete Optimization  
+### 📈 Lecture4: Optimization  
 Making things better, one step at a time.  
 
-### 🤖 Incomplete Learning  
+### 🤖 Lecture5: Learning  
 Machines trying their best… and sometimes failing.  
 
-### 🔗 Incomplete Neural Networks  
+### 🔗 Lecture6: Neural Networks  
 Inspired by brains, but less likely to forget birthdays.  
 
-### 🗣️ Language  
+### 🗣️ Lecture7: Language  
 Teaching AI to talk—without the awkward small talk.  
 
 ---
