@@ -2,7 +2,7 @@
 A journey through AI concepts, one lecture at a time! 🚀  
 
 
-### 🔍 Lecture1: Search  
+### 🔍 Lecture1: Search (./Lecture1/)   
 Finding stuff efficiently—because guessing is overrated.  
 
 ### 🧠 Lecture2: Knowledge  
